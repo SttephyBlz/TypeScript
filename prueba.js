@@ -11,7 +11,17 @@ var edad = 21;
 var programador = true;
 var langs = ["PHP", "JavaScript", "CSS"];
 etiqueta.innerHTML = nombre2 + " - " + edad;
-alert("Hola mundo alert");
+var a = 7;
+var b = 12;
+if (a === 7) {
+    //Una variable let solo tiene alcance dentro
+    //del bloque en cuestión. Mientras que var
+    //se puede utilizar donde sea.
+    var a_1 = 4;
+    var b = 1;
+    console.log("Dentro del if: " + a_1 + " - " + b);
+}
+console.log("Fuera del if: " + a + " - " + b);
 //Se compila en consola el TS:
 //tsc <nombre del ficher>.ts
 //tsc -w *.ts -> Checa continuamente las modificaciones
