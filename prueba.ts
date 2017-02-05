@@ -32,6 +32,25 @@ if(a === 7){
 
 console.log("Fuera del if: "+a+" - "+b);
 
+//Funciones y tipado
+
+//Debe devolver string
+function devuelveString(num:number):string{
+  return ""+num;
+}
+
+//Debe devolver numero
+function devuelveNumero(texto:string):number{
+  if(texto == "hola"){
+    var num=66;
+  }else{
+    var num=90;
+  }
+  return num;
+}
+
+alert(devuelveString(32));
+alert(devuelveNumero("hola"));
 //Se compila en consola el TS:
 //tsc <nombre del ficher>.ts
 //tsc -w *.ts -> Checa continuamente las modificaciones
