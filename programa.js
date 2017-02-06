@@ -3,6 +3,24 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+/*
+  A la clase donde estemos usando el decorador arranque le
+  estamos añadiendo un nuevo método llamado lanzamiento.
+*/
+function arranque(lanzar) {
+    return function (target) {
+        if (target === void 0) { target = function () { }; }
+        target.prototype.lanzamiento = function () {
+            alert(lanzar);
+        };
+    };
+}
 var Programa = (function () {
     function Programa() {
     }
@@ -20,6 +38,9 @@ var Programa = (function () {
     };
     return Programa;
 }());
+Programa = __decorate([
+    arranque("Lanzamiento del curso de NodeJS y Angular 2")
+], Programa);
 var EditorVideo = (function (_super) {
     __extends(EditorVideo, _super);
     function EditorVideo() {
@@ -36,6 +57,8 @@ var EditorVideo = (function (_super) {
     };
     return EditorVideo;
 }(Programa));
+var programa1 = new Programa();
+programa1.lanzamiento();
 var editor = new EditorVideo();
 editor.setNombre("Camtasia Studio");
 editor.setVersion(8);

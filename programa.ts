@@ -1,3 +1,16 @@
+/*
+  A la clase donde estemos usando el decorador arranque le
+  estamos añadiendo un nuevo método llamado lanzamiento.
+*/
+function arranque(lanzar: string){
+  return function(target: function){
+      target.prototype.lanzamiento = function(): void{
+        alert(lanzar);
+      }
+  }
+}
+
+@arranque("Lanzamiento del curso de NodeJS y Angular 2")
 class Programa{
   public nombre: string;
   public version: number;
@@ -35,6 +48,9 @@ class EditorVideo extends Programa{
 
 }
 
+var programa1 = new Programa();
+programa1.lanzamiento();
+
 var editor = new EditorVideo();
 
 editor.setNombre("Camtasia Studio");
@@ -67,5 +83,4 @@ function guardar(){
   listado.innerHTML = list;
 
   (<HTMLInputElement>document.getElementById("nombre")).value = "";
-
 }
