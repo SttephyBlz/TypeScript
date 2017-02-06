@@ -1,7 +1,17 @@
 class Coche{
   public color: string;
   public modelo: string;
-  public velocidad: number =0;
+  public velocidad: number;
+
+  constructor(modelo:any = null){
+    this.color = "Blanco";
+    this.velocidad=0;
+    if(modelo == null){
+      this.modelo = "BMW Genérico";
+    }else{
+      this.modelo = modelo;
+    }
+  }
 
   public getColor(){
     return this.color;
@@ -15,6 +25,14 @@ class Coche{
     return this.velocidad;
   }
 
+  public getModelo(){
+    return this.modelo;
+  }
+
+  public setModelo(modelo: string){
+    this.modelo = modelo;
+  }
+
   public acelerar(){
     this.velocidad++;
   }
@@ -25,7 +43,7 @@ class Coche{
 }
 
 //Crear un objeto
-var coche = new Coche();
+var coche = new Coche("Renault Clio");
 var coche2 = new Coche();
 var coche3 = new Coche();
 
@@ -45,3 +63,5 @@ console.log("La velocidad del coche 1 es: "+coche.getVelocidad());
 
 coche.frenar();
 console.log("La velocidad después de frenar el coche 1 es: "+coche.getVelocidad());
+
+console.log("El modelo del coche 1 es: "+coche.getModelo());

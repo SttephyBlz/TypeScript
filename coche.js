@@ -1,6 +1,14 @@
 var Coche = (function () {
-    function Coche() {
+    function Coche(modelo) {
+        if (modelo === void 0) { modelo = null; }
+        this.color = "Blanco";
         this.velocidad = 0;
+        if (modelo == null) {
+            this.modelo = "BMW Genérico";
+        }
+        else {
+            this.modelo = modelo;
+        }
     }
     Coche.prototype.getColor = function () {
         return this.color;
@@ -11,6 +19,12 @@ var Coche = (function () {
     Coche.prototype.getVelocidad = function () {
         return this.velocidad;
     };
+    Coche.prototype.getModelo = function () {
+        return this.modelo;
+    };
+    Coche.prototype.setModelo = function (modelo) {
+        this.modelo = modelo;
+    };
     Coche.prototype.acelerar = function () {
         this.velocidad++;
     };
@@ -20,7 +34,7 @@ var Coche = (function () {
     return Coche;
 }());
 //Crear un objeto
-var coche = new Coche();
+var coche = new Coche("Renault Clio");
 var coche2 = new Coche();
 var coche3 = new Coche();
 coche.setColor("Rojo");
@@ -35,3 +49,4 @@ coche.acelerar();
 console.log("La velocidad del coche 1 es: " + coche.getVelocidad());
 coche.frenar();
 console.log("La velocidad después de frenar el coche 1 es: " + coche.getVelocidad());
+console.log("El modelo del coche 1 es: " + coche.getModelo());
