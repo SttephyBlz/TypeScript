@@ -1,3 +1,20 @@
+module Tienda{
+  export class Ropa{
+    constructor(public titulo: string){
+      alert(titulo);
+    }
+  }
+
+  export class Informatica{
+    constructor(public titulo: string){
+      alert("Tienda de tecnologia: "+titulo);
+    }
+  }
+}
+
+import Informatica = Tienda.Informatica;
+let cargar_informatica = new Informatica("Super Tienda");
+
 /*
   A la clase donde estemos usando el decorador arranque le
   estamos añadiendo un nuevo método llamado lanzamiento.
